@@ -13,7 +13,7 @@ def extract_bbox_ids(extract):
 
 
 @reducer_wrapper()
-def bbox_mask_count_reducer(data_list, **kwargs):
+def spectrum_mask_count_reducer(data_list, **kwargs):
     reductions = OrderedDict()
     bbox_ids = []
     for extract in data_list:
