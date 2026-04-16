@@ -8,6 +8,8 @@ from panoptes_aggregation.reducers.reducer_wrapper import reducer_wrapper
 def extract_bbox_ids(extract):
     bbox_ids = []
     for frame, frame_data in extract["data"].items():
+        if "version" in frame:
+            continue
         bbox_ids.extend(frame_data["bbox_id"])
     return bbox_ids
 
@@ -24,4 +26,3 @@ def spectrum_mask_count_reducer(data_list, **kwargs):
     reductions["bbox_keys"] = list(map(lambda x: x[0], groups))
 
     return reductions
-    
