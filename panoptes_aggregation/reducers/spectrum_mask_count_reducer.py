@@ -11,7 +11,6 @@ def extract_bbox_ids(extract):
         if "version" in frame:
             continue
         bbox_ids.extend(frame_data["bbox_id"])
-        print(bbox_ids)
     return bbox_ids
 
 
@@ -22,8 +21,10 @@ def spectrum_mask_count_reducer(data_list, **kwargs):
     for extract in data_list:
         bbox_ids.extend(extract_bbox_ids(extract))
 
+    bbox_ids = sorted(bbox_ids)
+
     reductions["bbox_num_masks"] = [
-        len(list(g[1])) for g in itertools.groupby(sorted(bbox_ids))
+        len(list(g[1])) for g in itertools.groupby(bbox_ids)
     ]
     reductions["bbox_keys"] = [g[0] for g in itertools.groupby(bbox_ids)]
 
