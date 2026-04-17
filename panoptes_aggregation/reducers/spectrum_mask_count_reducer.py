@@ -21,10 +21,9 @@ def spectrum_mask_count_reducer(data_list, **kwargs):
     bbox_ids = []
     for extract in data_list:
         bbox_ids.extend(extract_bbox_ids(extract))
-        print(bbox_ids)
 
     reductions["bbox_num_masks"] = [
-        len(list(g[1])) for g in itertools.groupby(bbox_ids)
+        len(list(g[1])) for g in itertools.groupby(sorted(bbox_ids))
     ]
     reductions["bbox_keys"] = [g[0] for g in itertools.groupby(bbox_ids)]
 
