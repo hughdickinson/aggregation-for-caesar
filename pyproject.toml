@@ -55,7 +55,7 @@ online = [
     # as they are no longer in the standard python build
     "setuptools>=75.8,<76.0",
     "standard-imghdr>=3.13,<4.0",
-    "newrelic>=8.4.0,<10.4",
+    "newrelic>=8.4.0,<12.2",
     "gitpython>=3.0.0,<3.2"
 ]
 gui = [
